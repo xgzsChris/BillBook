@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">BillBook</string>
+    <string name="amount">金额：</string>
+    <string name="editcount">输入金额</string>
+    <string name="type">类型：</string>
+    <string name="expenditure">支出</string>
+    <string name="income">收入</string>
+    <string name="description">描述：</string>
+    <string name="editdesc">钱都去哪了</string>
+    <string name="record">记录</string>
+    <string name="overview">收支总览</string>
+    <string name="tvinfo">当前无记录</string>
+    <string name="situation">查看详情</string>
+    <string name="date">时间：</string>
+    <string name="submit">确认修改</string>
+</resources>
