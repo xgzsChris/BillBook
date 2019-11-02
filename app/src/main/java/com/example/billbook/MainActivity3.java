@@ -50,6 +50,7 @@ public class MainActivity3 extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //BillBook bill=new BillBook();
+                LitePal.deleteAll(BillBook.class,"date=?",billBook.getDate());
                 billBook.setDate(editdate.getText().toString());
                 billBook.setMoney(Double. parseDouble(editcount.getText().toString()));
                 billBook.setDescribe(editdesc.getText().toString());

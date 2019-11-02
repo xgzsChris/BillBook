@@ -29,23 +29,24 @@ public class MainActivity2 extends AppCompatActivity {
         initBillBook();
         BillBookAdapter adapter=new BillBookAdapter(MainActivity2.this,R.layout.list,billBookList);
         listview=(ListView)findViewById(R.id.list_view);
-        SimpleAdapter adapter1=getAdapter();
-        listview.setAdapter(adapter1);
+        //*SimpleAdapter adapter1=getAdapter();
+        listview.setAdapter(adapter);
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                HashMap<String, Object> m = (HashMap<String, Object>) adapterView.getItemAtPosition(i);
-                Integer pid=(Integer)m.get("date");
-                //BillBook billBook=billBookList.get(i);
-                //String id=(String)billBook.getDate();
+                //*HashMap<String, Object> m = (HashMap<String, Object>) adapterView.getItemAtPosition(i);
+                //*Integer pid=(Integer)m.get("date");
+                BillBook billBook=billBookList.get(i);
+                String id=(String)billBook.getDate();
                 Intent intent=new Intent(MainActivity2.this,MainActivity3.class);
-                //BillBook b= (BillBook) LitePal.where("date=?",id).find(BillBook.class);
+                List<BillBook> bList= LitePal.where("date=?",id).find(BillBook.class);
+                BillBook b=bList.get(0);
                 //intent.putExtra("type",billBook.getType());
                 //intent.putExtra("money",String.valueOf(billBook.getMoney()));
                 //intent.putExtra("date",billBook.getDate());
                 //intent.putExtra("describe",billBook.getDescribe());
-                BillBook billBook=LitePal.find(BillBook.class,pid);
-                intent.putExtra("billbook",billBook);
+                //*BillBook billBook=LitePal.find(BillBook.class,pid);
+                intent.putExtra("billbook",b);
                 startActivity(intent);
             }
         });
@@ -65,7 +66,7 @@ public class MainActivity2 extends AppCompatActivity {
             m.put("money", billBook.getMoney());
             m.put("describe", billBook.getDescribe());
             list1.add(m);
-        }i
+        }
         SimpleAdapter simpleAdapter = new SimpleAdapter(this, list1, R.layout.list,
                 new String[]{"类型", "金额","时间", "描述"},
                 //xml文件中的字段名
